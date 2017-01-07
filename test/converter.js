@@ -42,20 +42,20 @@ describe("A front end developer", function() {
 
   it.skip("should be able to throw error for non math expressions", function() {
     const math = require("../app/math")
-    expect(math("this isn't math")).to.throw(new Error('Invalid expression'));
-    expect(math("1 + 1;console.log('XSS')")).to.throw(new Error('Invalid expression'));
-    expect(math("console.log('XSS');1 + 1")).to.throw(new Error('Invalid expression'));
+    expect(() => math("this isn't math")).to.throw(new Error('Invalid expression'));
+    expect(() => math("1 + 1;console.log('XSS')")).to.throw(new Error('Invalid expression'));
+    expect(() => math("console.log('XSS');1 + 1")).to.throw(new Error('Invalid expression'));
   });
 
   it.skip("should be able to transform an object", function() {
     const transform = require("../app/transform")
     const originalObject = [
       {id: "1111", type:"circle", x: 5, y: 17, position: "center"},
-      {id: "2222", type:"circle", x: 5, y: 17, position: "center"}, 
-      {id: "3333", type:"circle", x: 5, y: 17, position: "center"}, 
+      {id: "2222", type:"circle", x: 5, y: 17, position: "center"},
+      {id: "3333", type:"circle", x: 5, y: 17, position: "center"},
       {id: "4444", type:"rectangle", x: 5, y: 17, position: "center"},
-      {id: "5555", type:"rectangle", x: 5, y: 17, position: "center"}, 
-      {id: "6666", type:"rectangle", x: 5, y: 17, position: "center"}, 
+      {id: "5555", type:"rectangle", x: 5, y: 17, position: "center"},
+      {id: "6666", type:"rectangle", x: 5, y: 17, position: "center"},
     ]
     const expectedObject = {
       "circle": {
